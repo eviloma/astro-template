@@ -1,11 +1,37 @@
+---
+import "./src/styles/global.css";
+
+import ClientRouter from "astro/components/ClientRouter.astro";
+import { SEO } from "astro-seo";
+import ProgressBar from "astro-vtbot/components/ProgressBar.astro";
+
+import generateSeoData from "@/utils/seo";
+
+const { currentLocale } = Astro;
+const { pathname } = Astro.url;
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const seo = generateSeoData({
+  title,
+  description,
+  pathname,
+  locale: currentLocale,
+});
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<SEO {...seo} />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<ClientRouter />
+		<ProgressBar />
 	</head>
 	<body>
 		<slot />

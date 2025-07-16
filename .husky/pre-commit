@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Checking types..."
+bun tsc
+
+echo "Running lint-staged..."
+bun lint-staged

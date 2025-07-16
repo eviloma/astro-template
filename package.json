@@ -4,11 +4,39 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "start": "bun run ./dist/server/entry.mjs",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "biome check",
+    "lint:fix": "biome check --write",
+    "prepare": "husky"
   },
   "dependencies": {
-    "astro": "^5.11.1"
-  }
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/sitemap": "^3.4.1",
+    "@hedystia/astro-bun": "^0.3.2",
+    "@tailwindcss/vite": "^4.1.11",
+    "astro": "^5.11.1",
+    "astro-favicons": "^3.1.5",
+    "astro-icon": "^1.1.5",
+    "astro-robots": "^2.3.1",
+    "astro-seo": "^0.8.4",
+    "astro-vtbot": "^2.1.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.0.5",
+    "@playform/compress": "^0.2.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "typescript": "^5.8.3"
+  },
+  "trustedDependencies": [
+    "@tailwindcss/oxide"
+  ]
 }
