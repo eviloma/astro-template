@@ -3,7 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import bun from "@hedystia/astro-bun";
 import compress from "@playform/compress";
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import favicons from "astro-favicons";
 import icon from "astro-icon";
 import robots from "astro-robots";
@@ -37,5 +37,15 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+  },
+
+  env: {
+    schema: {
+      PUBLIC_URL: envField.string({
+        context: "client",
+        access: "public",
+        default: "http://localhost:4321",
+      }),
+    },
   },
 });
